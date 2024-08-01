@@ -1,0 +1,55 @@
+											DB Model for GUVI ZEN Class
+											
+											
+
+TABLE1:students
+
+
+CREATE TABLE students (
+    student_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    date_of_birth DATE
+);
+
+INSERTING VALUES:
+
+insert into stdents values (1,"Jash","y","jash@gmail.com",04-06-1999);
+insert into stdents values (2,"Naresh","G","naresh@gmail.com",14-02-1999);
+
+--------------------------------
+
+
+TABLE2:couses
+
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_name VARCHAR(100) NOT NULL,
+    description TEXT
+);
+
+
+INSERTING VALUES:
+
+insert into courses values(1,"React","Basics of React");
+insert into courses values(2,"SQL","Basics of SQL"): 
+
+
+--------------------------------
+
+TABLE3:enrollments
+
+CREATE TABLE enrollments (
+    enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    course_id INT,
+    enrollment_date DATE,
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+INSERTING VALUES:
+
+insert into enrollments values(1,1,1,01-01-2024);
+insert into enrollments values(1,2,2,04-09-2023);
